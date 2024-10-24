@@ -12,10 +12,21 @@
 <body>
  <header>
         <h1 class="header">Welcome to  AlapcaFilmDB!</h1>
-        <input type="text" id="search" class="search" placeholder="search a movie here ! ">
+        <div class="link-bar">
+            <a href="index.html">
+            <button id="homeBtn">🏠</button>
+        </a>
+        <a href="favorites.html">
+            <button id="favBtn">💝</button>
+        </a>
+        <a href="about.html">
+            <button id="aboutBtn">📖</button>
+        </a>
+        </div>
  </header>
  <div class="current-page">
         <h1 class="header">Trending Movies</h1>
+        <input type="text" id="search" class="search" placeholder="search a movie here ! ">
     </div>
     <div class="toggle-container">
         <span class="toggle-label" id="">Daily</span>
@@ -25,28 +36,18 @@
      </label>
         <span class="toggle-label">Weekly</span>
     </div>
- <div class="main">
+    <div class="main-container">
+        <!-- A template for using dynamic generation of movie cards. -->
+ <div class="main" style="display: none;">
     <div class="image">
-        <img src="./imgs/MovieBanner.jpg" alt="A movie banner" srcset="">
+        <img src="" alt="A movie banner" srcset="">
     </div>
-    <div class="movie-title">Movie Title</div>
-    <div class="movie-mouseover"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero hic nulla id ipsam, pariatur aut autem aperiam similique atque rerum. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit perspiciatis vitae quas asperiores veniam animi illum rerum mollitia itaque fuga?</p>
+    <div class="movie-title"></div>
+    <div class="movie-mouseover"><p></p>
     <button>Movie</button></div>
  </div>
- <div class="main">
-    <div class="image">
-        <img src="./imgs/MovieBanner.jpg" alt="A movie banner" srcset="">
-    </div>
-    <div class="movie-title">Movie Title</div>
-    <div class="movie-mouseover">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero hic nulla id ipsam, 16pixel information icon pariatur aut autem aperiam similique atque rerum.</div>
- </div><div class="main">
-    <div class="image">
-        <img src="./imgs/MovieBanner.jpg" alt="A movie banner" srcset="">
-    </div>
-    <div class="movie-title">Movie Title</div>
-    <div class="movie-mouseover">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero hic nulla id ipsam, pariatur aut autem aperiam similique atque rerum.</div>
- </div>
- <div class="link-bar"></div>
+</div>
+
  <script src="./scripts/index.js"></script>
 </body>
 </html>

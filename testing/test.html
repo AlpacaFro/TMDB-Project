@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#">TMDB</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Movies</a></li>
+                <li><a href="#">TV Shows</a></li>
+                <li><a href="#">People</a></li>
+                <li><a href="#">More</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="language-selector">EN</button>
+                <button class="search-icon">🔍</button>
+                <button class="profile-icon">A</button>
+            </div>
+        </nav>
+    </header>
+    <section class="hero">
+        <h1>Welcome.</h1>
+        <p>Millions of movies, TV shows, and people to discover. Explore now.</p>
+        <input type="text" placeholder="Search for a movie, TV show, person..." class="search-bar">
+        <button class="search-btn">Search</button>
+    </section>
+    <section class="trending">
+        <h2>Trending</h2>
+        <div class="toggle">
+            <button class="toggle-btn active">Today</button>
+            <button class="toggle-btn">This Week</button>
+        </div>
+        <div class="movie-cards">
+            <div class="movie-card">
+                <img src="movie-poster.jpg" alt="Movie Poster">
+                <div class="movie-info">
+                    <h3>Movie Title</h3>
+                    <p>Oct 19, 2024</p>
+                    <div class="rating">77</div>
+                </div>
+            </div>
+            <!-- Repeat for more movie cards -->
+        </div>
+    </section>
+    <footer>
+        <p>By using this site, you agree to our use of cookies. <a href="#">Learn more</a></p>
+        <div class="cookie-buttons">
+            <button class="accept-btn">Accept All Cookies</button>
+            <button class="reject-btn">Reject All</button>
+        </div>
+    </footer>
+</body>
+</html>
