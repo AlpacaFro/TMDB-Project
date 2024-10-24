@@ -29,15 +29,15 @@
         <input type="text" id="search" class="search" placeholder="search a movie here ! ">
     </div>
     <div class="toggle-container">
-        <span class="toggle-label" id="">Daily</span>
+        <span class="toggle-label" id="">Top Daily</span>
      <label class="switch">
         <input type="checkbox" id="toggleSwitch">
         <span class="slider"></span>
      </label>
-        <span class="toggle-label">Weekly</span>
+        <span class="toggle-label">Top Weekly</span>
     </div>
-    <div class="main-container">
-        <!-- A template for using dynamic generation of movie cards. -->
+    <div class="main-container-daily">
+    <!-- template for using dynamic generation of trending movie cards. -->
  <div class="main" style="display: none;">
     <div class="image">
         <img src="" alt="A movie banner" srcset="">
@@ -47,7 +47,12 @@
     <button>Movie</button></div>
  </div>
 </div>
-
+<div class="main-container-weekly" style="display: none;">
+    <div class="slide-container">
+        <div class="sider">
+        </div>
+</div>
+</div>
  <script src="./scripts/index.js"></script>
 </body>
 </html>
