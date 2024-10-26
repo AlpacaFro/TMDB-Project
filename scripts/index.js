@@ -9,6 +9,8 @@ const options = {
   const dailyContainer = document.querySelector('.main-container-daily');
   const weeklyContainer = document.querySelector('.main-container-weekly');
   const toggleSwitch = document.getElementById('toggleSwitch');
+  const searchInput = document.getElementById('search');
+  const dropdown = document.getElementById('dropdown');
   
 // Fetch daily movies
 function fetchTrendingMovies() {
@@ -20,6 +22,13 @@ function fetchTrendingMovies() {
 // Fetch weekly movies
 function fetchPopularMovies() {
     return fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
+        .then(res => res.json())
+        .catch(err => console.error(err));
+}
+
+// Fetch search results 
+function fetchSearchResults(query) {
+    return fetch(`https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(query)}&language=en-US&page=1`, options)
         .then(res => res.json())
         .catch(err => console.error(err));
 }
@@ -85,3 +94,65 @@ function renderMovies(fetchFunc, movieContainer) {
 }
 
 
+function updateDropdown(results) {
+    dropdown.innerHTML = ''; // Clear previous results
+    dropdown.style.display = 'block'; // Show the dropdown
+
+    // Limit results to 10 movies
+    const limitedResults = results.slice(0, 10);
+
+    // Append each result to the dropdown
+    limitedResults.forEach(movie => {
+        const listItem = document.createElement('li');
+        listItem.classList.add('dropdown-item');
+
+        // Movie title
+        const movieTitle = document.createElement('span');
+        movieTitle.textContent = movie.title;
+
+        // Movie poster
+        const movieImage = document.createElement('img');
+        movieImage.src = `https://image.tmdb.org/t/p/w92${movie.poster_path}`; // Use a small size image (w92)
+        movieImage.alt = movie.title;
+        movieImage.classList.add('movie-poster');
+
+        // Append title and image to the list item
+        listItem.appendChild(movieTitle);
+        listItem.appendChild(movieImage);
+
+        // Add event listener for movie selection
+        listItem.addEventListener('click', () => selectMovie(movie));
+
+        dropdown.appendChild(listItem);
+    });
+}
+
+// Handle movie selection from the dropdown
+function selectMovie(movie) {
+    alert(`You selected: ${movie.title}`); // You can replace this with custom behavior
+    dropdown.style.display = 'none'; // Hide dropdown after selection
+}
+
+// Add event listener to search input
+searchInput.addEventListener('input', function() {
+    const query = searchInput.value.trim();
+
+    if (query.length > 2) { // Only search when query has more than 2 characters
+        fetchSearchResults(query).then(data => {
+            if (data.results && data.results.length > 0) {
+                updateDropdown(data.results);
+            } else {
+                dropdown.innerHTML = '<li>No results found</li>';
+            }
+        });
+    } else {
+        dropdown.style.display = 'none'; // Hide dropdown if query is too short
+    }
+});
+
+// Hide dropdown when clicking outside
+document.addEventListener('click', function(e) {
+    if (!dropdown.contains(e.target) && !searchInput.contains(e.target)) {
+        dropdown.style.display = 'none';
+    }
+});
