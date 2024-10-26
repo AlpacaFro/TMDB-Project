@@ -5,7 +5,7 @@ const options = {
       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkZDcyNzViNjg0YzAyNzk5MDI3YmExYThhNWI5MTBhOSIsIm5iZiI6MTcyOTc2MTAyNS44MzU4Nywic3ViIjoiNjcwZTJhMWM5ZjM1MzFlNmIyNmM1YWMzIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.TvB9qmpBtlW23ekD8T0zqP_vHV_Q7fAxhO_w-wvfDwM'
     }
   };
-
+// Fetch elms
   const dailyContainer = document.querySelector('.main-container-daily');
   const weeklyContainer = document.querySelector('.main-container-weekly');
   const toggleSwitch = document.getElementById('toggleSwitch');
@@ -33,18 +33,20 @@ function fetchSearchResults(query) {
         .catch(err => console.error(err));
 }
 
+
 // render daily on load 
 renderMovies(fetchTrendingMovies, dailyContainer);
+
 
 // Toggle between daily and weekly Movies
 toggleSwitch.addEventListener('change', function () {
     if (toggleSwitch.checked) {
         dailyContainer.style.display = 'none';
-        weeklyContainer.style.display = 'block';
+        weeklyContainer.style.classList.add('.flex-display');  
         renderMovies(fetchPopularMovies, weeklyContainer);
     } else {
-        weeklyContainer.style.display = 'none';
-        dailyContainer.style.display = 'block';
+        weeklyContainer.style.class = 'none';
+        dailyContainer.style.classList.add('.flex-display'); 
         renderMovies(fetchTrendingMovies, dailyContainer);
     }
 });
@@ -86,31 +88,23 @@ function renderMovies(fetchFunc, movieContainer) {
             movieCard.appendChild(imageDiv);
             movieCard.appendChild(titleDiv);
             movieCard.appendChild(mouseoverDiv);
-
-            // Append the movie card to the container
+            
             movieContainer.appendChild(movieCard);
         });
-    }).catch(err => console.error('Error rendering movies:', err));
+    }).catch(err => console.error('Error loading movies. ', err));
 }
 
 
 function updateDropdown(results) {
-    dropdown.innerHTML = ''; // Clear previous results
-    dropdown.style.display = 'block'; // Show the dropdown
-
-    // Limit results to 10 movies
+    dropdown.innerHTML = ''; 
+    dropdown.style.display = 'block'; 
     const limitedResults = results.slice(0, 10);
-
-    // Append each result to the dropdown
+    // add each result to the dropdown
     limitedResults.forEach(movie => {
         const listItem = document.createElement('li');
         listItem.classList.add('dropdown-item');
-
-        // Movie title
         const movieTitle = document.createElement('span');
         movieTitle.textContent = movie.title;
-
-        // Movie poster
         const movieImage = document.createElement('img');
         movieImage.src = `https://image.tmdb.org/t/p/w92${movie.poster_path}`; // Use a small size image (w92)
         movieImage.alt = movie.title;
@@ -129,15 +123,16 @@ function updateDropdown(results) {
 
 // Handle movie selection from the dropdown
 function selectMovie(movie) {
-    alert(`You selected: ${movie.title}`); // You can replace this with custom behavior
-    dropdown.style.display = 'none'; // Hide dropdown after selection
+    // link to moviePage //
+    dropdown.style.display = 'none'; 
 }
 
 // Add event listener to search input
 searchInput.addEventListener('input', function() {
-    const query = searchInput.value.trim();
-
-    if (query.length > 2) { // Only search when query has more than 2 characters
+    const query = searchInput.value.trim(); //cleans spaces from qeury//
+   
+    
+    if (query.length > 2) {
         fetchSearchResults(query).then(data => {
             if (data.results && data.results.length > 0) {
                 updateDropdown(data.results);
@@ -146,13 +141,13 @@ searchInput.addEventListener('input', function() {
             }
         });
     } else {
-        dropdown.style.display = 'none'; // Hide dropdown if query is too short
+        dropdown.style.display = 'none'; 
     }
 });
 
-// Hide dropdown when clicking outside
-document.addEventListener('click', function(e) {
-    if (!dropdown.contains(e.target) && !searchInput.contains(e.target)) {
+// Hide dropdown 
+document.addEventListener('click', function(el) {
+    if (!dropdown.contains(el.target)) {
         dropdown.style.display = 'none';
     }
 });
