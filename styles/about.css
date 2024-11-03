@@ -1,0 +1,138 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Tiny5', sans-serif;
+    background: rgb(59, 30, 84);
+    background: linear-gradient(0deg, rgba(59, 30, 84, 1) 5%, rgba(155, 126, 189, 1) 100%);
+    color: #f5e7ff;
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #947ab3;
+    width: 100vw;
+    box-sizing: border-box;
+}
+
+header {
+    font-family: "Tiny5", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: #947ab3;
+    width: 100%;
+    box-sizing: border-box; 
+    position: relative; 
+}
+
+header h1 {
+    font-size: 20px;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    letter-spacing: 2px;
+}
+
+.header {
+    color: #ffffffde;
+    text-align: center;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+
+/* Navigation Buttons */
+.link-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.link-bar button {
+    background-color: #947ab3;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.link-bar button:hover {
+    background-color: #9733e9;
+}
+
+/* About Page Content Styling */
+.about-content {
+    max-width: 800px;
+    margin: 40px;
+    text-align: left;
+    line-height: 1.6;
+    font-family: 'Jersey 20', serif;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.about-content h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #f5e7ff;
+}
+
+.about-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.about-content ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.about-content li {
+    margin-bottom: 10px;
+}
+
+/* Footer Styling */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 16px;
+    color: #ffffffde;
+}
+
+@media (min-width: 801px) {
+    .about-content {
+        max-width: 1000px;
+    }
+
+    .header {
+        font-size: 35px;
+    }
+
+    .link-bar button {
+        font-size: 20px;
+        padding: 15px 25px;
+    }
+} 

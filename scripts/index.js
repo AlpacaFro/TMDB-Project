@@ -42,11 +42,11 @@ renderMovies(fetchTrendingMovies, dailyContainer);
 toggleSwitch.addEventListener('change', function () {
     if (toggleSwitch.checked) {
         dailyContainer.style.display = 'none';
-        weeklyContainer.style.classList.add('.flex-display');  
+        weeklyContainer.style.display = 'flex';
         renderMovies(fetchPopularMovies, weeklyContainer);
     } else {
-        weeklyContainer.style.class = 'none';
-        dailyContainer.style.classList.add('.flex-display'); 
+        dailyContainer.style.display = 'flex';
+        weeklyContainer.style.display = 'none';
         renderMovies(fetchTrendingMovies, dailyContainer);
     }
 });
@@ -80,9 +80,19 @@ function renderMovies(fetchFunc, movieContainer) {
             const movieDescription = document.createElement('p');
             movieDescription.textContent = movie.overview;
             mouseoverDiv.appendChild(movieDescription);
+
+            // redirect button to the movie page 
             const button = document.createElement('button');
             button.textContent = 'Movie';
+            button.addEventListener('click', () => {
+                window.location.href = `single-movie.html?id=${movie.id}`; // Redirect with movie ID
+            });
             mouseoverDiv.appendChild(button);
+
+            button.addEventListener('click', () => {
+                console.log('Button clicked');
+                window.location.href = `single-movie.html?id=${movie.id}`; // Redirect with movie ID
+            });
 
             // Append elements to the movie card
             movieCard.appendChild(imageDiv);
@@ -124,6 +134,7 @@ function updateDropdown(results) {
 // Handle movie selection from the dropdown
 function selectMovie(movie) {
     // link to moviePage //
+    window.location.href = `single-movie.html?id=${movie.id}`;
     dropdown.style.display = 'none'; 
 }
 

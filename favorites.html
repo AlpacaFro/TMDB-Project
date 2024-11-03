@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorites | AlpacaFilmDB</title>
+    <link rel="stylesheet" href="./styles/favorites.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+20&family=Tiny5&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header section with navigation -->
+    <header>
+        <h1 class="header">Welcome to PacaFilmDB!</h1>
+        <div class="link-bar">
+            <a href="index.html"><button id="homeBtn">🏠 </button></a>
+            <a href="favorites.html"><button id="favBtn">💝 </button></a>
+            <a href="about.html"><button id="aboutBtn">👨‍🏫 </button></a>
+        </div>
+    </header>
+
+    <!-- Search Bar Section (copied from main page) -->
+    <div class="current-page">
+        <h1>My Favorites!</h1>
+    </div>
+        
+        <!-- Favorites Content Section -->
+        <div id="favorites-container" class="favorites-containers">
+            <!-- Favorite movies will be loaded here dynamically -->
+        </div>
+        
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div id="loading-spinner"></div>
+    </div>
+
+    <script src="./scripts/favorites.js"></script>
+</body>
+</html>

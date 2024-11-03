@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details | PacaFilm</title>
+    <link rel="stylesheet" href="styles/single-movie.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+20&family=Tiny5&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div id="loading-spinner"></div>
+    </div>
+
+    <!-- Header section with navigation -->
+    <header>
+        <h1 class="header">Welcome to AlpacaFilmDB!</h1>
+        <div class="link-bar">
+            <a href="index.html"><button id="homeBtn">🏠</button></a>
+            <a href="favorites.html"><button id="favBtn">💝</button></a>
+            <a href="about.html"><button id="aboutBtn">👨‍🏫</button></a>
+        </div>
+    </header>
+
+    <!-- Movie Title Bar -->
+    <div class="movie-title-bar">
+        <h2 id="movieTitle">Movie Title</h2>
+    </div>
+
+    <!-- Search Bar Section (copied from main page) -->
+    <div class="current-page">
+        <input type="text" id="search" class="search" placeholder="search a movie here ! ">
+        <ul id="dropdown" class="dropdown-list"></ul>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="movie-content">
+        <!-- Movie Poster -->
+        <div class="movie-image-container">
+            <img id="movie-poster" src="" alt="Movie Poster">
+        </div>
+
+        <!-- Movie Details -->
+        <div class="movie-info" id="movie-info">
+            <h2 id="movie-title">Movie Title</h2>
+            <div class="add-to-favorites">
+                <button id="add-to-favorites-button" class="add-button">Add to Favorites</button>
+            </div>
+            <section class="info-section">
+                <h3>Description</h3>
+                <p id="movie-description">Movie Description...</p>
+            </section>
+            
+            <section class="info-section">
+                <h3>Categories</h3>
+                <p id="movie-categories">List of categories...</p>
+            </section>
+            
+            <section class="info-section">
+                <h3>Actors</h3>
+                <p id="movie-actors">List of actors...</p>
+            </section>
+        </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="scripts/single-movie.js"></script>
+</body>
+</html>

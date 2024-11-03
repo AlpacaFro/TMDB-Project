@@ -194,14 +194,15 @@ img {
     overflow: scroll;
     transition: background-color 0.5s ease, opacity 0.5s ease;
     opacity: 0; 
-    
+    letter-spacing: 3px;
+    font-size: 18px;
 }
 
 .main:hover .movie-mouseover,
 .main:focus .movie-mouseover {
     display: block;
     opacity: 1; 
-    background-color: rgba(63, 40, 85, 0.8); 
+    background-color: rgba(37, 37, 37, 0.849); 
     transition: background-color 0.5s ease, opacity 0.5s ease;
 }
 
@@ -236,6 +237,13 @@ margin-bottom: 10px;
 border-radius: 10px;
 
 }
+
+.link-bar button:hover {
+    background-color: #9733e9;
+}
+
+
+
 
 .toggle-container{
     margin-bottom: 13%;
@@ -288,12 +296,14 @@ border-radius: 10px;
 
  
 
-.hidden {
-    display: none;
-}
-
-.flex-display {
+.main-container-daily,.main-container-weekly{
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2rem;
+    padding: 1rem;
+    transition: 400ms;
 }
 @media (max-width: 600px){
     .flex-display { display: block;}
@@ -319,7 +329,7 @@ border-radius: 10px;
         flex-wrap: wrap;
         justify-content: space-around;
         gap: 2rem;
-        padding: 1rem;
+        padding: 3rem;
         transition: 400ms;
     }
     .main, .main:hover .movie-mouseover, .main:focus .movie-mouseover{
@@ -336,7 +346,7 @@ border-radius: 10px;
     max-height: none;
     position: absolute;
     max-height: 250px;
-    height: 100%;
+    height: fit-content;
     }
     .movie-mouseover::-webkit-scrollbar{
         display: none;
